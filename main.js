@@ -1,8 +1,9 @@
 import input from 'input';
 async function main() {
-    const myAge = 19
+    const drivingAge = 19
     const age = await input.text(' What is your age?');
     const hasLicense = await input.confirm('Do you have your License?');
+    while (true) {
     if (myAge >= 19) {
         console.log('You can drive!');
     } else {
@@ -13,6 +14,7 @@ async function main() {
             console.log('You are not old enough!');
         }
     }
+    }
 }
+    main();
 
-main();
