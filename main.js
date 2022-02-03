@@ -1,29 +1,20 @@
 import input from 'input';
+
+
 async function main() {
-    const drivingAge = 18
-    let tocontinue = true;
+    const shopping = [];
+    let finished = false;
 
-    while (true) {
-        const age = await input.text(' What is your age?');
-        const hasLicense = await input.confirm('Do you have your License?');
-        if (age>= drivingAge && hasLicense) {
-            console.log('You can drive!');
+    while (!finished) {
+        // resp is short for response
+        const resp = await input.text('Enter an item (or "finish"')
+        if(resp == "finish") {
+            finished = true;
         } else {
-            console.log ('You cannnot drive!'); 
-            if (!hasLicense) {
-                console.log("Go get your license!")
-            } else {
-                console.log('You are not old enough!');
-            }
+            shopping.push(resp)
         }
-        tocontinue = await input.confirm('Do you wamt to continue?');
-    
     }
+    console.log("Here is your shopping list.");
+    console.log(shopping)
 }
-
-main();
-    
-    
-
-
-
+main()
